@@ -34,7 +34,8 @@ if (!options.file) {
 import pdf_extract from 'pdf-extract';
 // var absolute_path_to_pdf = '~/Downloads/electronic.pdf'
 var pdfOptions = {
-  type: 'text'  // extract the actual text in the pdf file
+  type: 'text',  // extract the actual text in the pdf file
+  clean: true  // prevent tmp directory /usr/run/$userId$ from overfilling with parsed pdf pages
 }
 
 
@@ -80,7 +81,7 @@ processor.on('complete', async function(data) {
     max_tokens: 2000
   });
 
-  console.log("What follows is the first few pages of a pdf, please summarize it and then generate a quiz over the contents:", completion.data.choices);
+  console.log("What follows is the first few pages of a pdf, please summarize it and then generate a quiz over the contents:", completion.data.choices[0].txt);
 
   const completion2 = await openai.createCompletion({
     model: "text-davinci-003",
@@ -88,7 +89,7 @@ processor.on('complete', async function(data) {
     max_tokens: 2000
   });
 
-  console.log(`What is the title?`, completion2.data.choices);
+  console.log(`What is the title?`, completion2.data.choices[0].txt);
 
   // callback(null, data.text_pages);
 });

@@ -2,7 +2,7 @@ step 0: be on a ?linux machine? (idk for sure i use nixos)
 
 step 1: install nix on your machine
 
-step 2: nix-shell
+step 2: nix-shell (flake is work in progress)
 
 step 2.5: make a pull request implementing pretty much all the features this project currently needs to be a nice user experience
 

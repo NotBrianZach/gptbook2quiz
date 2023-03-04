@@ -1,4 +1,4 @@
-step 0: be on a ?linux machine? (idk for sure i use nixos)
+step 0: be on a ?linux machine? (idk for sure i use nixos) (if it doesn't work on windows subsystem for linux or mac, after downloading nix, feel free to open issue or pull request)
 
 step 1: install nix on your machine
 

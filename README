@@ -9,6 +9,8 @@ step 2.5: make a pull request implementing pretty much all the features this pro
 step 3:	 npm install
 
 step 4:
-./book2quiz.sh OPEN_API_KEY path_2_ur_pdf_here.pdf
+./book2quiz.sh $OPEN_API_KEY path_2_ur_pdf_here.pdf
 
-step 5: open an issue detailing why doesnt work
+step 4.5: open an issue detailing why doesnt work
+
+half steps are slightly facetious

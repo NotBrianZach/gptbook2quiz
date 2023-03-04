@@ -1,1 +1,10 @@
-step 1: install nodejs
+step 1: install nix on your machine
+
+step 2: nix-shell
+
+step 2.5: make a pull request implementing pretty much all the features this project currently needs to be a nice user experience
+
+step 3:
+./book2quiz.sh OPEN_API_KEY path_2_ur_pdf_here.pdf
+
+

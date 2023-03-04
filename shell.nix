@@ -12,6 +12,7 @@ pkgs.stdenv.mkDerivation {
   name = "nix-shell-pdftk-pdftotext-ghostscript-tesseractjs";
 
   buildInputs = [
+    pkgs.nodejs
     pdftk
     pdftotext
     ghostscript

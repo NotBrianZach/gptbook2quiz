@@ -54,26 +54,6 @@ processor.on('complete', async function(data) {
   function removeExtraWhitespace(str) {
     return str.replace(/\s+/g, ' ').trim();
   }
-  // const text = removeExtraWhitespace(data.text_pages[0]);
-  // console.log(text);
-  // const prompt = `This is a summary of the paper: ${text}
-  // Summary:
-  // `;
-  // const completion = openai.complete({
-  //   prompt,
-  //   engine: "davinci",
-  //   maxTokens: 4000,
-  //   temperature: 0.9,
-  //   topP: 1,
-  //   frequencyPenalty: 0,
-  //   presencePenalty: 0,
-  //   bestOf: 1,
-  //   n: 1,
-  //   stream: false
-  // });
-  // completion.then((response) => {
-  //   console.log(response.data.choices[0].text);
-  // });
 
   const completion = await openai.createCompletion({
     model: "text-davinci-003",

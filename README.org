@@ -22,7 +22,6 @@
 **** 1-a -> step 1 happens concurrently/asynchronously to step a
 
 ** Giving gpt3 Short&Long term memory (Event Loop)
-*** 0. read the title, print&query user to verify, if not query user for title
 *** 1. IF EXISTS, load title&synopsis&rollingSummary from readingList.json ELSE if can find table of contents then synopsize&user validates, else query user for title&synopsis, rollingSummary=empty string
 *** 2. IF EXISTS, load n=pageNumber, m=chunkSize from reagingList.json, ELSE n=commandline param pageNumber (default 0), m=commandline param pageNumber chunkSize (default 2)
 *** 3. feed gpt3 pages[n:n+m], prepending prependContext&synopsis&title&rollingSummary, appending appendContext, summarize pages[n:n+m]

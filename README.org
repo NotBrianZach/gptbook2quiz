@@ -1,5 +1,5 @@
 * A Conversational Read Eval Print Loop for books
-** TODO gif or youtube example
+**TODO gif or youtube example
 ** how to read this
 *** numbers e.g. 1. indicate steps in the event loop, letters are steps that happen in a given workflow
 *** a.1 -> step a happens before step 1, but after step 0
@@ -12,7 +12,7 @@
 *** 1. if can find table of contents then synposize&user validates, else query user for synopsis
 *** 2. n= user input pageNumber (default 0), m=user input chunkSize (default 2), rollingSummary=empty string
 
-*** TODO steps 0-2 can also be done from information stored in readingList
+***TODO steps 0-2 can also be done from information stored in readingList
 
 *** 3. feed gpt3 pages[n:n+m], prepending synopsis&title&rollingSummary, summarize pages[n:n+m]
 *** 4. query gpt3 w/synopsis+summary of pages[n:n+m] to generate a new rollingSummary
@@ -61,7 +61,6 @@ switch between query or quiz mode without losing page context using logs
 * Inspiration
 i had previously kept a reading list with commands like
 """
-CURRENT
 # 0-
 ebook-viewer ~/media/books/TheDividedSelf2010.epub --open-at 59
 

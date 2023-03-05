@@ -1,13 +1,13 @@
-* WIP
+* A REPL for books
 
 * Start with book pdf, then
 
 **** 0. read the title and table of contents if it exists, generate a meta summary, or have user provide a meta summary of the book
 **** 1. feed pages[n:n+m] into gpt3, prepending the meta summary, generate a summary of pages[n:n+m] and a quiz,
 **** 2. display summary of pages[n:n+m] and quiz  to the user, record user answer to quiz
-**** 2.5. have gpt attempt to check the answers to made up quiz
-**** 3. append the summary of pages[n:n+m] to the meta summary and generate a new meta summary
-**** 4. record a log of all the summaries and quizzes
+**** 3. have gpt attempt to answer the quiz itself
+**** 4. append the summary of pages[n:n+m] to the meta summary and generate a new meta summary
+**** 5. record a log of all the summaries and quizzes
 
 
 * TO RUN

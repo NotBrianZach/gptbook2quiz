@@ -42,7 +42,7 @@ var processor = pdf_extract(options.file, pdfOptions, function(err) {
     return callback(err);
   }
 });
-let metaSummary = "";
+let synopsis = "";
 let logSummary = [];
 let logQuiz = [];
 const currentPageNumber = options.page === undefined ? 0 : options.page;
@@ -85,7 +85,7 @@ processor.on("complete", async function(data) {
     // 1. feed pages[n:n+m] into gpt3, prepending the meta summary, generate a summary of pages[n:n+m] and a quiz,
     const summaryCompletion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `Summarize the following TEXT exerpt and book SYNOPSIS from book w/title: ${title}, TEXT: ${pageSlice} SYNOPSIS: ${metaSummary}`,
+      prompt: `Summarize the following TEXT exerpt and book SYNOPSIS from book w/title: ${title}, TEXT: ${pageSlice} SYNOPSIS: ${synopsis}`,
       max_tokens: 2000
     });
     //2. display summary of pages[n:n+m] and quiz  to the user, record user answer to quiz
@@ -99,7 +99,7 @@ processor.on("complete", async function(data) {
 
     const completionQuiz = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `$SUMMARY$: ${metaSummary} $CONTENT$: ${pageSlice} $INSTRUCTIONS$: given $SUMMARY$ and $CONTENT$ of book titled "${title}" generate a quiz bank of questions to test knowledge of $CONTENT$`,
+      prompt: `$SUMMARY$: ${synopsis} $CONTENT$: ${pageSlice} $INSTRUCTIONS$: given $SUMMARY$ and $CONTENT$ of book titled "${title}" generate a quiz bank of questions to test knowledge of $CONTENT$`,
       max_tokens: 2000
     });
     console.log(`Quiz:`, completionQuiz.data.choices[0].text);
@@ -117,11 +117,11 @@ processor.on("complete", async function(data) {
     //3. append the summary of pages[n:n+m] to the meta summary and generate a new meta summary
     const updateMetaSummaryCompletion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `given $SUMMARY$ of book titled ${title.titleKey}${metaSummary} $CONTENT$: ${pageSlice} $INSTRUCTIONS$: given $SUMMARY$ and $CONTENT$ of book titled "${title}" generate a quiz bank of questions to test knowledge of $CONTENT$`,
+      prompt: `given $SUMMARY$ of book titled ${title.titleKey}${synopsis} $CONTENT$: ${pageSlice} $INSTRUCTIONS$: given $SUMMARY$ and $CONTENT$ of book titled "${title}" generate a quiz bank of questions to test knowledge of $CONTENT$`,
       max_tokens: 2000
     });
-    metaSummary = updateMetaSummaryCompletion.data.choices[0].text;
-    console.log(`New Meta Summary:`, metaSummary);
+    synopsis = updateMetaSummaryCompletion.data.choices[0].text;
+    console.log(`New Meta Summary:`, synopsis);
     var finalPromptSchema = {
       properties: {
         isExit: {
@@ -138,7 +138,7 @@ processor.on("complete", async function(data) {
   }
 
   const summary = {
-    metaSummary,
+    synopsis,
     logSummary,
     logQuiz
   }

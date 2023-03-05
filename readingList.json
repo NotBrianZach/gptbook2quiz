@@ -1,8 +1,15 @@
 {
   "mode": "quiz&answer",
   "modeValues": ["quiz&answer", "quiz", "query", "narrate"],
-  "character": "",
-  "exampleCharacterValues": ["aristotle", "confucius", "mike tyson"],
+  "exampleCharacterValues": ["","aristotle", "confucius", "mike tyson"],
   "readingList": {
+    "frankenstein": {
+      "pageNumber": 0,
+      "chunkSize": 0,
+      "character": "",
+      "mode": "quiz&answer",
+      "prependContext": "",
+      "appendContext": ""
+    }
   }
 }

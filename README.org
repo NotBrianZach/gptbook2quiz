@@ -1,6 +1,6 @@
 * A REPL for books
 
-* Start with book pdf, then
+* Quiz Mode: Start with book pdf, then
 
 **** 0. read the title and table of contents if it exists, generate a meta summary, or have user provide a meta summary of the book
 **** 1. feed pages[n:n+m] into gpt3, prepending the meta summary, generate a summary of pages[n:n+m] and a quiz,

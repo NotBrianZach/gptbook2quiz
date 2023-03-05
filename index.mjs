@@ -11,12 +11,6 @@ program
   .version('0.1.0')
   .option('-f, --file <file>', 'Path to PDF file')
   .parse(process.argv)
-//  .action((str, options) => {
-//    console.log("action")
-//    console.log(str,options)
-//    const limit = options.first ? 1 : undefined;
-//    console.log(str.split(options.separator, limit));
-//  });
 
 const options = program.opts();
 // console.log(options)
@@ -26,11 +20,6 @@ if (!options.file) {
 }
 
 
-// https://www.npmjs.com/package/pdf-extract
-// Text extract from searchable pdf
-// eyes is optional console.log replacement
-// import inspect from 'eyes'.
-// inspect.inspector({maxLength:20000});
 import pdf_extract from 'pdf-extract';
 // var absolute_path_to_pdf = '~/Downloads/electronic.pdf'
 var pdfOptions = {

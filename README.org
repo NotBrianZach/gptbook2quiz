@@ -15,11 +15,11 @@
 ****  - open an issue detailing why doesnt work
 
 ** how to read this
-*** numbers e.g. 1. indicate steps in the event loop, letters are steps that happen in a given workflow
-*** a.1 -> step a happens before step 1, but after step 0
-*** 1.a -> step 1 happens before step a
-*** 1.b -> step 1 happens before step a, step b happens after step a
-*** 1-a -> step 1 happens concurrently/asynchronously to step a
+**** numbers e.g. 1. indicate steps in the event loop, letters are steps that happen in a given workflow
+**** a.1 -> step a happens before step 1, but after step 0
+**** 1.a -> step 1 happens before step a
+**** 1.b -> step 1 happens before step a, step b happens after step a
+**** 1-a -> step 1 happens concurrently/asynchronously to step a
 
 ** Giving gpt3 Short&Long term memory (Event Loop)
 *** 0. read the title, print&query user to verify, if not query user for title

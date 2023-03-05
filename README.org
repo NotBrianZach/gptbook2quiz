@@ -61,7 +61,8 @@ switch between query or quiz mode without losing page context using logs
 
 * Design decisions
 pdf-extract introduces a bunch of binary dependencies relative to
-alternative libraries but we want those because they
+alternative libraries but we want those because they enable ocr on the subset of pdfs
+that don't cleanly delineate text
 
 * Inspiration
 i had previously kept a reading list with commands like

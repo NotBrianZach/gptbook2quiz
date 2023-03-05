@@ -5,7 +5,7 @@
   "readingList": {
     "frankenstein": {
       "pageNumber": 0,
-      "chunkSize": 0,
+      "chunkSize": 2,
       "character": "",
       "mode": "quiz&answer",
       "pdfPath": "./Frankenstein.pdf",

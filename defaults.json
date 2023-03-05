@@ -1,0 +1,6 @@
+{
+  "mode": "quiz",
+  "modeValues": ["quiz", "readalong", "narrate"],
+  "character": "",
+  "characterValues": ["aristotle", "confucious", "mike tyson"]
+}

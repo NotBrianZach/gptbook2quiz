@@ -12,8 +12,8 @@
 
 * TO RUN
 
-**** step 0: be on a ?linux machine? (idk for sure i use nixos) (if it doesn't work on windows subsystem for linux or mac, after downloading nix, feel free to open issue or pull request
-**** step 1: install nix on your machine
+**** step 0: if windows then install windows subsystem for linux TODO gifs or youtube playlist here
+**** step 1: https://nixos.org/download.html
 **** step 2: nix-shell (flake is work in progress)
 **** step 2.5: make a pull request implementing pretty much all the features this project currently needs to be a nice user experience
 **** step 3:	npm install
@@ -23,3 +23,6 @@
 half steps are slightly facetious
 
 * Reading List Utility (read.sh)
+store path to pdf and relevant executable to read it
+backup&rotate logs
+

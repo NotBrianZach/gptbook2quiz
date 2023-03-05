@@ -54,3 +54,27 @@ store path to pdf and relevant executable to read it
 backup&rotate logs
 switch between query or quiz mode without losing page context using logs
 
+* Inspiration
+i had previously kept a reading list with commands like
+"""
+CURRENT
+# 0-
+ebook-viewer ~/media/books/TheDividedSelf2010.epub --open-at 59
+
+# 0-
+xpdf ~/media/books/tcp_ip_networkadministration_3rdedition.pdf 50 -z 200
+
+xpdf ~/media/books/LinuxProgrammingInterface2010.pdf
+"""
+
+in a file in my ~ directory so i could read books from command line and record current position
+
+i had also been looking for technically inclined book club
+
+thought had been bubbling in my head that I wanted to read books alongside gpt3
+
+then i saw this reddit post
+
+https://www.reddit.com/r/singularity/comments/11ho23y/first_post_in_reddit_mistakely_used_a_text_post/
+
+and a couple hours later i started writing this

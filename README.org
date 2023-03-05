@@ -5,7 +5,7 @@
 *** a.1 -> step a happens before step 1, but after step 0
 *** 1.a -> step 1 happens before step a
 *** 1.b -> step 1 happens before step a, step b happens after step a
-*** 1-a -> step 1 happens concurrently/asynchronously w/step a
+*** 1-a -> step 1 happens concurrently/asynchronously to step a
 
 ** Giving gpt3 Short&Long term memory
 *** 0. read the title, print&query user to verify, if not query user for title

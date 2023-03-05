@@ -1,4 +1,5 @@
-* A REPL for books
+* A Conversational Read Eval Print Loop for books
+** TODO gif or youtube example
 ** how to read this
 *** numbers e.g. 1. indicate steps in the event loop, letters are steps that happen in a given workflow
 *** a.1 -> step a happens before step 1, but after step 0
@@ -7,9 +8,12 @@
 *** 1-a -> step 1 happens concurrently/asynchronously w/step a
 
 ** Giving gpt3 Short&Long term memory
-*** 0. read the title, print and query user to verify, if not query user for title
-*** 1. if can find table of contents then generate a synposis&have user validate, else have query user for synopsis
-*** 2. n = 0 or user input pageNumber, m = 2 or user input chunkSize 
+*** 0. read the title, print&query user to verify, if not query user for title
+*** 1. if can find table of contents then synposize&user validates, else query user for synopsis
+*** 2. n= user input pageNumber (default 0), m=user input chunkSize (default 2), rollingSummary=empty string
+
+*** TODO steps 0-2 can also be done from information stored in readingList
+
 *** 3. feed gpt3 pages[n:n+m], prepending synopsis&title&rollingSummary, summarize pages[n:n+m]
 *** 4. query gpt3 w/synopsis+summary of pages[n:n+m] to generate a new rollingSummary
 *** 5. while pageNumber< bookLength, n=n+m go back to 0.

@@ -7,6 +7,7 @@
 ****  - https://nixos.org/download.html (select appropriate operating system from siderbar)
 ****  - git clone https://github.com/NotBrianZach/gptbook2quiz.git
 ****  - cd gptbook2quiz
+****  - todo check if mac and use darwin nixpkgs
 ****  - nix-shell (flake is work in progress)
 ****  - make a pull request implementing pretty much all the features this project currently needs to be a nice user experience
 **** 	- npm install
@@ -20,7 +21,7 @@
 *** 1.b -> step 1 happens before step a, step b happens after step a
 *** 1-a -> step 1 happens concurrently/asynchronously to step a
 
-** Giving gpt3 Short&Long term memory
+** Giving gpt3 Short&Long term memory (Event Loop)
 *** 0. read the title, print&query user to verify, if not query user for title
 *** 1. if can find table of contents then synopsize&user validates, else query user for synopsis
 *** 2. n= user input pageNumber (default 0), m=user input chunkSize (default 2), rollingSummary=empty string
@@ -98,6 +99,8 @@ then i saw this reddit post
 https://www.reddit.com/r/singularity/comments/11ho23y/first_post_in_reddit_mistakely_used_a_text_post/
 
 and a within a couple minutes, after some good ole reddit arguing, i started writing this
+
+** Pushdown Large Language Models
 
 actually, a final thought, about fundamental models of computation
 

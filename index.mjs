@@ -6,15 +6,6 @@ import { Configuration, OpenAIApi } from "openai";
 import pdf_extract from "pdf-extract";
 console.log(process.argv);
 
-function isValidObject(str) {
-  try {
-    const obj = JSON.parse(str);
-    return typeof obj === "object" && obj !== null;
-  } catch (e) {
-    return false;
-  }
-}
-
 program
   .version("0.1.0")
   .option("-f, --file <file>", "Path to PDF file")
@@ -36,6 +27,11 @@ const openAIConfiguration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY
 });
 
+function removeExtraWhitespace(str) {
+  // removes any instance of two or whitespace (text often has tons of padding characers), and whitespace from end and beginning of str
+  return str.replace(/\s+/g, " ").trim();
+}
+
 const openai = new OpenAIApi(openAIConfiguration);
 var processor = pdf_extract(options.file, pdfOptions, function(err) {
   if (err) {
@@ -48,16 +44,12 @@ let logSummary = [];
 let logQuiz = [];
 const currentPageNumber = options.page === undefined ? 0 : options.page;
 const chunkSize = options.chunkSize === undefined ? 2 : options.chunkSize;
-processor.on("complete", async function(data) {
-  // console.log(data.text_pages[0], "extracted text page 1");
+function eventLoop(data) {
   const totalPages = data.text_pages.length;
   console.log("totalPages", totalPages, currentPageNumber, chunkSize);
 
-  function removeExtraWhitespace(str) {
-    return str.replace(/\s+/g, " ").trim();
-  }
   // 0. read the title and table of contents if it exists, generate a meta summary, or have user provide a meta summary of the book
-  const titlePrompt = `What follows is the text of the first few pages of a pdf, output the title in json format { "titleKey": title }: ${removeExtraWhitespace(
+  const titlePrompt = `What follows is the text of the first few pages of a pdf, output the title: ${removeExtraWhitespace(
     data.text_pages
       .slice(currentPageNumber, currentPageNumber + chunkSize)
       .join("")
@@ -68,14 +60,18 @@ processor.on("complete", async function(data) {
     prompt: titlePrompt,
     max_tokens: 2000
   });
-  let title = titleCompletion.data.choices[0].text;
-  console.log("attempt to extract title", title);
-  if (!isValidObject(title)) {
-    const { inputTitle } = await prompt.get(["inputTitle"]);
-    title = inputTitle;
-  } else {
-    title = JSON.parse(title).titleKey;
-  }
+  let potentialTitle = titleCompletion.data.choices[0].text;
+  var titlePromptSchema = {
+    properties: {
+      validTitle: {
+        message:
+        "Press C if title correct, otherwise enter title",
+        required: true
+      }
+    }
+  };
+  const { inputTitle } = await prompt.get(["inputTitle"]);
+
   while (currentPageNumber + chunkSize < totalPages) {
     const pageSlice = removeExtraWhitespace(
       data.text_pages
@@ -149,4 +145,9 @@ processor.on("complete", async function(data) {
     `./log.json`,
     JSON.stringify(summary)
   );
+}
+
+processor.on("complete", async function(pdfText) {
+  // console.log(data.text_pages[0], "extracted text page 1");
+  eventLoop(pdfText)
 });

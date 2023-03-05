@@ -23,11 +23,8 @@
 
 ** Giving gpt3 Short&Long term memory (Event Loop)
 *** 0. read the title, print&query user to verify, if not query user for title
-*** 1. if can find table of contents then synopsize&user validates, else query user for synopsis
-*** 2. n= user input pageNumber (default 0), m=user input chunkSize (default 2), rollingSummary=empty string
-
-***TODO steps 0-2 can also be done from information stored in readingList
-
+*** 1. IF EXISTS, load title&synopsis&rollingSummary from readingList.json ELSE if can find table of contents then synopsize&user validates, else query user for title&synopsis, rollingSummary=empty string
+*** 2. IF EXISTS, load n=pageNumber, m=chunkSize from reagingList.json, ELSE n=commandline param pageNumber (default 0), m=commandline param pageNumber chunkSize (default 2)
 *** 3. feed gpt3 pages[n:n+m], prepending prependContext&synopsis&title&rollingSummary, appending appendContext, summarize pages[n:n+m]
 *** 4. query gpt3 w/synopsis+summary of pages[n:n+m] to generate a new rollingSummary
 *** 5. while pageNumber < bookLength, set n=n+m, go back to 3.

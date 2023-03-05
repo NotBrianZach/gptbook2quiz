@@ -42,6 +42,7 @@ var processor = pdf_extract(options.file, pdfOptions, function(err) {
     return callback(err);
   }
 });
+
 let synopsis = "";
 let logSummary = [];
 let logQuiz = [];

@@ -4,7 +4,7 @@
 * TO RUN
 ****  - TODO gifs or youtube playlist here
 ****  - if windows then install windows subsystem for linux 
-****  - https://nixos.org/download.html
+****  - https://nixos.org/download.html (select appropriate operating system from siderbar)
 ****  - git clone https://github.com/NotBrianZach/gptbook2quiz.git
 ****  - cd gptbook2quiz
 ****  - nix-shell (flake is work in progress)
@@ -45,15 +45,14 @@
 
 ** Rewrite Mode: 
 
-**** n = 0 or user input pageNumber, m = 2 or user input chunkSize 
 **** 1. ask user for character (e.g. aristotle)
 **** 2. read pages, rewrite in characters voice
 
 * Narrate Submode: 
-**** 
+*** todo use elevenlabs api to generate voice
 
-* Narrate&VoiceDiction Submode: 
-*** TODO
+* VoiceDiction Submode: 
+*** todo use ?talon? to allow voice input?
 
 * Reading List Utility (readList.sh)
 

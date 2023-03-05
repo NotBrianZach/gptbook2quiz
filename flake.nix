@@ -1,34 +1,26 @@
 {
-  description = "Nix Flake for pdftk, pdftotext, ghostscript and tesseract.js";
-  inputs = {
-    pdftk = {
-      url = "https://nixos.org/releases/nixpkgs/nixpkgs-19.03/pdftk-3.0.6.tar.gz";
-      sha256 = "abcd1234";
+  flake-name = "nix-shell-pdftk-pdftotext-ghostscript-tesseractjs";
+
+  inputs.nixpkgs.url = "https://github.com/NixOS/nixpkgs/archive/{nixpkgs.ref}.tar.gz";
+  inputs.nixpkgs.ref = "stable";
+
+  outputs = { self, nixpkgs }: {
+    shell = self.stdenv.mkDerivation {
+      name = "nix-shell-pdftk-pdftotext-ghostscript-tesseractjs";
+
+      buildInputs = [
+        nixpkgs.nodejs
+
+        # reading list util
+        nixpkgs.jq
+
+
+        # all binary requirements of pdf-extract npm package
+        nixpkgs.pdftk
+        nixpkgs.poppler
+        nixpkgs.ghostscript
+        nixpkgs.tesseract4
+      ];
     };
-    pdftotext = {
-      url = "https://nixos.org/releases/nixpkgs/nixpkgs-19.03/pdftotext-3.0.6.tar.gz";
-      sha256 = "efgh5678";
-    };
-    ghostscript = {
-      url = "https://nixos.org/releases/nixpkgs/nixpkgs-19.03/ghostscript-9.07.tar.gz";
-      sha256 = "ijkl9012";
-    };
-    tesseractjs = {
-      url = "https://nixos.org/releases/nixpkgs/nixpkgs-19.03/tesseract.js-0.2.0.tar.gz";
-      sha256 = "mnop3456";
-    };
-  };
-  outputs = { self, nixpkgs, pdftk, pdftotext, ghostscript, tesseractjs }:
-  {
-    nix-shell-pdftk-pdftotext-ghostscript-tesseractjs =
-      nixpkgs.stdenv.mkDerivation {
-        name = "nix-shell-pdftk-pdftotext-ghostscript-tesseractjs";
-        buildInputs = [
-          pdftk
-          pdftotext
-          ghostscript
-          tesseractjs
-        ];
-      };
   };
 }

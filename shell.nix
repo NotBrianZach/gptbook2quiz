@@ -13,6 +13,12 @@ pkgs.stdenv.mkDerivation {
 
   buildInputs = [
     pkgs.nodejs
+
+    # reading list util
+    pkgs.jq
+
+
+    # all binary requirements of pdf-extract npm package
     pdftk
     pdftotext
     ghostscript

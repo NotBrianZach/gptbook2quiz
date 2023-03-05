@@ -3,7 +3,7 @@
 * Start with book pdf, then
 
 **** 0. read the title and table of contents if it exists, generate a meta summary, or have user provide a meta summary of the book
-**** 1. feed pages[n:n+m] into gpt3, prepending the meta summary, generate a summary of pages[n:n+m** and a quiz,
+**** 1. feed pages[n:n+m] into gpt3, prepending the meta summary, generate a summary of pages[n:n+m] and a quiz,
 **** 2. display summary of pages[n:n+m] and quiz  to the user, record user answer to quiz
 **** 2.5. have gpt attempt to check the answers to made up quiz
 **** 3. append the summary of pages[n:n+m] to the meta summary and generate a new meta summary
@@ -21,3 +21,5 @@
 **** step 4.5: open an issue detailing why doesnt work
 
 half steps are slightly facetious
+
+* Reading List Utility (read.sh)

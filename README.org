@@ -1,13 +1,22 @@
 * A REPL for books
 
+**** 0. read the title. if table of contents  then generate a synposis, else have user provide a synopsis of the book
+
 * Quiz Mode: Start with book pdf, then
 
-**** 0. read the title and table of contents if it exists, generate a meta summary, or have user provide a meta summary of the book
-**** 1. feed pages[n:n+m] into gpt3, prepending the meta summary, generate a summary of pages[n:n+m] and a quiz,
-**** 2. display summary of pages[n:n+m] and quiz  to the user, record user answer to quiz
-**** 3. have gpt attempt to answer the quiz itself
-**** 4. append the summary of pages[n:n+m] to the meta summary and generate a new meta summary
+**** n = 0 or user input pageNumber, m = 2 or user input chunkSize 
+**** 1. feed gpt3 pages[n:n+m], prepending synopsis&title&rollingSummary, summarize pages[n:n+m] and a quiz,
+**** 2. display summary of pages[n:n+m] and quiz to the user, record user answer to quiz
+**** 3. (optional, default quiz&answer) gpt attempts to answer the quiz and shows user, wait to continue
+**** 4. query gpt3 w/synopsis+summary of pages[n:n+m] to generate a new rollingSummary
 **** 5. record a log of all the summaries and quizzes
+
+* Query Mode: 
+
+**** n = 0 or user input pageNumber, m = 2 or user input chunkSize 
+**** 1. feed gpt3 pages[n:n+m], prepending synopsis&title&rollingSummary, summarize pages[n:n+m] and wait for user to ask question,
+**** 1. feed pages[n:n+m] into gpt3, prepending the synopsis&title, wait for user to ask question
+**** 2. answer user question and wait if user wants to C=continue to next page or Q=ask another question
 
 
 * TO RUN
@@ -25,4 +34,5 @@ half steps are slightly facetious
 * Reading List Utility (read.sh)
 store path to pdf and relevant executable to read it
 backup&rotate logs
+switch between query or quiz mode without losing page context using logs
 

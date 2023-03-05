@@ -1,6 +1,6 @@
 {
-  "mode": "quiz",
-  "modeValues": ["quiz", "readalong", "narrate"],
+  "mode": "quiz&answer",
+  "modeValues": ["quiz&answer", "quiz", "query", "narrate"],
   "character": "",
-  "characterValues": ["aristotle", "confucious", "mike tyson"]
+  "exampleCharacterValues": ["aristotle", "confucius", "mike tyson"]
 }

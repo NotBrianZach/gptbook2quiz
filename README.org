@@ -2,14 +2,16 @@
 **TODO gif or youtube example
 
 * TO RUN
-
-****  if windows then install windows subsystem for linux TODO gifs or youtube playlist here
-****  https://nixos.org/download.html
-****  nix-shell (flake is work in progress)
-****  make a pull request implementing pretty much all the features this project currently needs to be a nice user experience
-**** 	npm install
-****  ./book2quiz.sh $OPEN_API_KEY path_2_ur_pdf_here.pdf
-****  open an issue detailing why doesnt work
+****  - TODO gifs or youtube playlist here
+****  - if windows then install windows subsystem for linux 
+****  - https://nixos.org/download.html
+****  - git clone https://github.com/NotBrianZach/gptbook2quiz.git
+****  - cd gptbook2quiz
+****  - nix-shell (flake is work in progress)
+****  - make a pull request implementing pretty much all the features this project currently needs to be a nice user experience
+**** 	- npm install
+****  - ./book2quiz.sh $OPEN_API_KEY path_2_ur_pdf_here.pdf
+****  - open an issue detailing why doesnt work
 
 half steps are slightly facetious
 ** how to read this

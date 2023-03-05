@@ -1,23 +1,41 @@
 * A REPL for books
+** how to read this
+*** numbers indicate steps in the event loop, letters are steps that happen in a given workflow
+*** a.1 -> step a happens before step 1, but after step 0
+*** 1.a -> step 1 happens before step a
+*** 1.b -> step 1 happens before step a, step b happens after step a
+*** 1-a -> step 1 happens concurrently/asynchronously w/step a
 
-**** 0. read the title. if table of contents  then generate a synposis, else have user provide a synopsis of the book
+** Giving gpt3 Short&Long term memory
+*** 0. read the title, print and ask user to verify if successful, if not query user for title
+*** 1. if can find table of contents then generate a synposis&have user validate, else have query user for synopsis
+*** 2. n = 0 or user input pageNumber, m = 2 or user input chunkSize 
+*** 3. feed gpt3 pages[n:n+m], prepending synopsis&title&rollingSummary, summarize pages[n:n+m]
+*** 4. query gpt3 w/synopsis+summary of pages[n:n+m] to generate a new rollingSummary
+*** 5. while pageNumber< bookLength, n=n+m go back to 0.
+*** 6. onExit callback function 
 
-* Quiz Mode: Start with book pdf, then
+** Quiz Mode: Start with book pdf, then
+**** 1.a. generate quiz,
+**** 2.a. display summary of pages[n:n+m] and quiz to the user, record user answer to quiz
+**** 2.b. (optional, default quiz&answer) gpt attempts to answer the quiz and shows user, wait to continue
+**** 4.a record a log of all the summaries and quizzes
 
-**** n = 0 or user input pageNumber, m = 2 or user input chunkSize 
-**** 1. feed gpt3 pages[n:n+m], prepending synopsis&title&rollingSummary, summarize pages[n:n+m] and a quiz,
-**** 2. display summary of pages[n:n+m] and quiz to the user, record user answer to quiz
-**** 3. (optional, default quiz&answer) gpt attempts to answer the quiz and shows user, wait to continue
-**** 4. query gpt3 w/synopsis+summary of pages[n:n+m] to generate a new rollingSummary
-**** 5. record a log of all the summaries and quizzes
-
-* Query Mode: 
-
-**** n = 0 or user input pageNumber, m = 2 or user input chunkSize 
-**** 1. feed gpt3 pages[n:n+m], prepending synopsis&title&rollingSummary, summarize pages[n:n+m] and wait for user to ask question,
-**** 1. feed pages[n:n+m] into gpt3, prepending the synopsis&title, wait for user to ask question
+** Query Mode: 
+**** 1. wait for user to ask question,
 **** 2. answer user question and wait if user wants to C=continue to next page or Q=ask another question
 
+** Rewrite Mode: 
+
+**** n = 0 or user input pageNumber, m = 2 or user input chunkSize 
+**** 1. ask user for character (e.g. aristotle)
+**** 2. read pages, rewrite in characters voice
+
+* Narrate Submode: 
+**** 
+
+* Narrate&VoiceDiction Submode: 
+*** TODO
 
 * TO RUN
 

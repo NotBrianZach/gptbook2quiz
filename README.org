@@ -15,7 +15,7 @@
 ****  - open an issue detailing why doesnt work
 
 ** how to read this
-**** numbers indicate steps in the event loop, letters are steps that happen in a given workflow
+**** numbers are steps in the event loop, letters are steps in a given workflow (which modifies event loop)
 **** a.1 -> step a happens before step 1, but after step 0
 **** 1.a -> step 1 happens before step a
 **** 1.b -> step 1 happens before step a, step b happens after step a

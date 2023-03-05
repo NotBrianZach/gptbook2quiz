@@ -1,13 +1,13 @@
 * A REPL for books
 ** how to read this
-*** numbers indicate steps in the event loop, letters are steps that happen in a given workflow
+*** numbers e.g. 1. indicate steps in the event loop, letters are steps that happen in a given workflow
 *** a.1 -> step a happens before step 1, but after step 0
 *** 1.a -> step 1 happens before step a
 *** 1.b -> step 1 happens before step a, step b happens after step a
 *** 1-a -> step 1 happens concurrently/asynchronously w/step a
 
 ** Giving gpt3 Short&Long term memory
-*** 0. read the title, print and ask user to verify if successful, if not query user for title
+*** 0. read the title, print and query user to verify, if not query user for title
 *** 1. if can find table of contents then generate a synposis&have user validate, else have query user for synopsis
 *** 2. n = 0 or user input pageNumber, m = 2 or user input chunkSize 
 *** 3. feed gpt3 pages[n:n+m], prepending synopsis&title&rollingSummary, summarize pages[n:n+m]
@@ -49,7 +49,7 @@
 
 half steps are slightly facetious
 
-* Reading List Utility (read.sh)
+* Reading List Utility (readList.sh)
 store path to pdf and relevant executable to read it
 backup&rotate logs
 switch between query or quiz mode without losing page context using logs

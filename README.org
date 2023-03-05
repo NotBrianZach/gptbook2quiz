@@ -13,7 +13,6 @@
 ****  - ./book2quiz.sh $OPEN_API_KEY path_2_ur_pdf_here.pdf
 ****  - open an issue detailing why doesnt work
 
-half steps are slightly facetious
 ** how to read this
 *** numbers e.g. 1. indicate steps in the event loop, letters are steps that happen in a given workflow
 *** a.1 -> step a happens before step 1, but after step 0

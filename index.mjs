@@ -5,6 +5,7 @@ import prompt from "prompt";
 import { Configuration, OpenAIApi } from "openai";
 import pdf_extract from "pdf-extract";
 console.log(process.argv);
+readingList = fs.readFileSync(path.resolve(""))
 
 program
   .version("0.1.0")

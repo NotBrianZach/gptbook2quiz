@@ -47,7 +47,7 @@
 **** 2. read pages, rewrite in characters voice
 
 * Narrate Submode: 
-*** todo use elevenlabs api to generate voice
+*** todo use https://github.com/coqui-ai/TTS to generate voice?
 
 * VoiceDiction Submode: 
 *** todo use ?talon? to allow voice input?
@@ -89,7 +89,7 @@ thought had been bubbling in my head that I wanted to read books alongside gpt3,
 
 i had previously spent several years trying to make multi player choose your own adventure novels a thing (and maybe still plan to?)
 
-i really thought, and think, that technology has vast potential to create new narrative structures
+i really thought, and think, as a massive wordcel, that computers have a vast potential to create new narrative structures
 
 then i saw this reddit post
 

@@ -9,6 +9,7 @@
       "character": "",
       "mode": "quiz&answer",
       "pdfPath": "./Frankenstein.pdf",
+      "max_tokens": 2000,
       "executable": "xpdf",
       "arguments": "-z 200",
       "prependContext": "",

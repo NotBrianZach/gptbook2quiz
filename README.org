@@ -23,15 +23,15 @@
 
 ** Giving gpt3 Short&Long term memory (Event Loop)
 *** 1. IF EXISTS, load title&synopsis&rollingSummary from readingList.json ELSE if can find table of contents then synopsize&user validates, else query user for title&synopsis, rollingSummary=empty string
-*** 2. IF EXISTS, load n=pageNumber, m=chunkSize from reagingList.json, ELSE n=commandline param pageNumber (default 0), m=commandline param pageNumber chunkSize (default 2)
-*** 3. feed gpt3 pages[n:n+m], prepending prependContext&synopsis&title&rollingSummary, appending appendContext, summarize pages[n:n+m]
-*** 4. query gpt3 w/synopsis+summary of pages[n:n+m] to generate a new rollingSummary
-*** 5. while pageNumber < bookLength, set n=n+m, go back to 3.
+*** 2. IF EXISTS, load pageNumber, chunkSize from reagingList.json, ELSE pageNumber=commandline param (default 0), chunkSize=commandline param  (default 2)
+*** 3. feed gpt3 pages[pageNumber:pageNumber+chunkSize], prepending prependContext&synopsis&title&rollingSummary, appending appendContext, summarize pages[n:n+m]
+*** 4. query gpt3 w/synopsis+summary of pages[pageNumber:pageNumber+chunkSize] to generate a new rollingSummary
+*** 5. while pageNumber < bookLength, set pageNumber=pageNumber+chunkSize, go back to 3.
 *** 6. onExit callback function 
 
 ** Quiz Mode: Start with book pdf, then
 **** 1.a. generate quiz,
-**** 2.a. display summary of pages[n:n+m] and quiz to the user, record user answer to quiz
+**** 2.a. display summary of pages[pageNumber:pageNumber+chunkSize] and quiz to the user, record user answer to quiz
 **** 2.b. (optional, default quiz&answer) gpt attempts to answer the quiz prints answers, R for user reply to answers
 **** 6.a record a log of all the summaries and quizzes
 
@@ -42,7 +42,7 @@
 
 ** Rewrite Mode: 
 
-**** 1. ask user for character (e.g. aristotle)
+**** 1. ask user for character (e.g. socrates) (any string will be accepted)
 **** 2. read pages, rewrite in characters voice
 
 * Narrate Submode: 

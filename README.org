@@ -42,8 +42,8 @@
 
 ** Rewrite Mode: 
 
-**** 1. ask user for character (e.g. socrates) (any string will be accepted)
-**** 2. read pages, rewrite in characters voice
+**** 1.a ask user for character (e.g. socrates) (any string will be accepted)
+**** 2.a read pages, rewrite in characters voice
 
 * Narrate Submode: 
 *** todo use https://github.com/coqui-ai/TTS to generate voice?
@@ -65,7 +65,23 @@ pdf-extract introduces a bunch of binary dependencies relative to
 alternative libraries but we want those because they enable ocr on the subset of pdfs
 that don't cleanly delineate text
 
+* Naming
+
+bza are my initials.
+
+also naive pronounciation sounds kind of like pizza, which is typically
+sliced into pizza just like we are chunking up books.
+
+and bza is a short three letter word which is not too overloaded and can be invoked easily on the command line.
+
+finally, book starts with B, quiz ends with Z and a is a.
+
+makes total sense.
+
+just bza it!
+
 * Inspiration
+
 i had previously kept a reading list with commands like
 
 """

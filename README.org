@@ -1,4 +1,4 @@
-* A Conversational Read Eval Print Loop for Books&Articles
+* A GPT-Powered Conversational Read Eval Print Loop for Books&Articles
 **TODO gif or youtube example
 
 * TO RUN

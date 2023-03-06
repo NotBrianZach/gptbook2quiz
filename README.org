@@ -5,13 +5,13 @@
 ****  - TODO gifs or youtube playlist here
 ****  - if windows then install windows subsystem for linux 
 ****  - https://nixos.org/download.html (select appropriate operating system from siderbar)
-****  - git clone https://github.com/NotBrianZach/gptbook2quiz.git
-****  - cd gptbook2quiz
-****  - todo check if mac and use darwin nixpkgs
-****  - nix-shell (flake is work in progress)
+****  - git clone https://github.com/NotBrianZach/bzabook2aquiz.git
+****  - cd bzabook2aquiz
+****  - nix-shell (flake is work in progress) todo check if mac and use darwin nixpkgs
 ****  - make a pull request implementing pretty much all the features this project currently needs to be a nice user experience
 **** 	- npm install
 ****  - ./book2quiz.sh $OPEN_API_KEY path_2_ur_pdf_here.pdf
+****  - get $OPEN_API_KEY key here if u dont have https://platform.openai.com/account/api-keys
 ****  - open an issue detailing why doesnt work
 
 ** how to read this
@@ -24,7 +24,7 @@
 ** Giving gpt3 Short&Long term memory (Event Loop)
 *** 1. IF EXISTS, load title&synopsis&rollingSummary from readingList.json ELSE try to grab title, query user C=confirm, string=user inputs title, query user for page range of table of contents if input=([0-9]*-[0-9]*) try to synopsize and validate with user, else ask user input synopsis, rollingSummary=empty string
 *** 2. IF EXISTS, load pageNumber, chunkSize from reagingList.json, ELSE pageNumber=commandline param (default 0), chunkSize=commandline param  (default 2)
-*** 3. feed gpt3 pages[pageNumber:pageNumber+chunkSize], prepending prependContext&synopsis&title&rollingSummary, appending appendContext, summarize pages[n:n+m]
+*** 3. feed gpt3 pages[pageNumber:pageNumber+chunkSize], prepending beforeContext&synopsis&title&rollingSummary, appending afterContext, summarize pages[n:n+m]
 *** 4. query gpt3 w/synopsis+summary of pages[pageNumber:pageNumber+chunkSize] to generate a new rollingSummary
 *** 5. while pageNumber < bookLength, set pageNumber=pageNumber+chunkSize, go back to 3.
 *** 6. onExit callback function 
@@ -35,20 +35,36 @@
 **** 2.b. (optional, default quiz&answer) gpt attempts to answer the quiz prints answers, R for user reply to answers
 **** 6.a record a log of all the summaries and quizzes
 
+** Quiz&Answer Mode: Start with book pdf, then
+**** 1.a. generate quiz,
+**** 2.a. display summary of pages[pageNumber:pageNumber+chunkSize] and quiz to the user, record user answer to quiz
+**** 2.b. gpt attempts to answer the quiz prints answers,
+***** query user-> R for user reply to answers, on other input continue
+**** 6.a record a log of all the summaries and quizzes
+
 ** Query Mode: 
 **** 1.a query user for question, 
-**** 1.b answer user question, query user C=continue to next page,Q=ask another question,R=query gpt3 w/user reply on question answer
+**** 1.b gpt3 answer user query,  
+***** query user
+****** C=continue to next page,
+****** Q=ask another question, repeat 1.b
+****** r=query gpt3 w/user reply on question answer,
+****** A= append next query input to gpt query at the start of each chunk
+****** B= prepend next query input to gpt query at the start of each chunk
+****** e.g. tell a joke about the following 
 **** 6.a record a log of all questions&answers
+
 
 ** Rewrite Mode: 
 
 **** 1.a ask user for character (e.g. socrates) (any string will be accepted)
 **** 2.a read pages, rewrite in characters voice
 
-* Narrate Submode: 
-*** todo use https://github.com/coqui-ai/TTS to generate voice?
+** Narrate Submode: 
+*** todo use https://github.com/coqui-ai/TTS to generate voice
+*** to narrate gpt response
 
-* VoiceDiction Submode: 
+** VoiceDiction Submode: 
 *** todo use ?talon? to allow voice input?
 
 * Reading List Utility (readList.sh)

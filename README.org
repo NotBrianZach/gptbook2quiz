@@ -1,4 +1,4 @@
-* this repo has moved https://github.com/NotBrianZach/bzaBook2AQuiz eventually will move  https://github.com/NotBrianZach/bza
+* this repo has moved to  https://github.com/NotBrianZach/bza
 **TODO gif or youtube example
 
 * TO RUN
